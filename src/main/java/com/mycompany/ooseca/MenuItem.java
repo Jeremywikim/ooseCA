@@ -1,15 +1,13 @@
 package com.mycompany.ooseca;
 
-public class OrderItem {
+public class MenuItem {
     private int menuItemID;
     private String itemName;
-    private int quantity;
     private double price;
 
-    public OrderItem(int menuItemID, String itemName, int quantity, double price) {
+    public MenuItem(int menuItemID, String itemName, double price) {
         this.menuItemID = menuItemID;
         this.itemName = itemName;
-        this.quantity = quantity;
         this.price = price;
     }
 
