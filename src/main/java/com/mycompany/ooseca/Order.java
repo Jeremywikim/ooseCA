@@ -1,12 +1,13 @@
 package com.mycompany.ooseca;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Order {
     private static int orderIDCounter = 0;
-    private int orderID;
-    private List<OrderItem> orderItems;
+    private final int orderID;
+    private final List<OrderItem> orderItems;
 
     public Order() {
         this.orderID = generateOrderID();
@@ -25,5 +26,10 @@ public class Order {
 
     private int generateOrderID() {
         return ++orderIDCounter;
+    }
+
+
+    public Collection<Object> getOrderItems() {
+
     }
 }

@@ -1,8 +1,16 @@
 package com.mycompany.ooseca;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Menu {
-    private static int menuItemIDCounter = 0;
-    private List<MenuItem> menuItems;
+    private static int menuItemIDCounter;
+
+    static {
+        menuItemIDCounter = 0;
+    }
+
+    private final List<MenuItem> menuItems;
 
     public Menu() {
         this.menuItems = new ArrayList<>();
