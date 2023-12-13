@@ -1,68 +1,83 @@
 package com.mycompany.ooseca;
 
+
+
+import java.util.ArrayList;
+import java.lang.reflect.Field;
+
 public class OrderItem {
-    // declaration
-    private int menuItemID;
-    private String itemName;
-    private int quantity;
-    private double price;
-    private double total;
+
+
+    private int orderID = 0;
+    private ArrayList<Integer> quantity;
+    private ArrayList<Double> pricesList;
+    private ArrayList<MenuItem> orderList;
+    private double totalPrice = 0.0;
+    private Menu menu;
 
 
     // constructor
-    public OrderItem(int menuItemID, String itemName, int quantity, double price) {
-        this.menuItemID = menuItemID;
-        this.itemName = itemName;
-        this.quantity = quantity;
-        this.price = price;
+    public OrderItem(){
+        this.orderList = new ArrayList<>();
+    }
+
+    public OrderItem(Menu menu, int orderID) {
+        this.orderID = orderID;
+        this.menu = menu;
+        this.orderList = new ArrayList<>();
+        this.quantity = new ArrayList<>();
+        this.pricesList = new ArrayList<>();
     }
 
 
-    // process
-    public double ComputeTotal(){
-        //
-        this.total = price * quantity;
-        return total;
+    // add items to orderList
+    public void addItemsToOrderList(int num){
+        orderList.add(this.menu.getItemFromMenu(num));
+    }
+
+
+    // add prices into pricesList
+    public void addPricesOfItemTo(){
+        for (int i=0; i< orderList.size(); i++) {
+            pricesList.add(orderList.get(i).getPrice()* quantity.get(i));
+        }
+    }
+
+    // calculate total price
+    public void calTotalPrice(){
+        for (Double d: pricesList){
+            this.totalPrice += d;
+        }
     }
 
 
 
-
-
-
-
-
-    // setter and getter
-
-    public int getMenuItemID() {
-        return menuItemID;
+    // add quantities to quantity (ArrayList)
+    public void setQuantity(int num){
+        quantity.add(num);
     }
 
-    public void setMenuItemID(int menuItemID) {
-        this.menuItemID = menuItemID;
+    // get total price
+    public double getTotalPrice() {
+        return totalPrice;
     }
 
-    public String getItemName() {
-        return itemName;
+    public void printOrder(){
+
+        System.out.println("orderID: " + this.orderID);
+        System.out.println("itemID  " + "name  " + "   price  " + "quantity  " + "total price of item") ;
+        for (int i=0; i< orderList.size();i++){
+            System.out.printf("%-7s",orderList.get(i).getMenuItemID());
+            System.out.printf("%-10s",orderList.get(i).getItemName());
+            System.out.printf("%-10s",orderList.get(i).getPrice());
+            System.out.printf("%-10s",quantity.get(i));
+            System.out.printf("%-10s",pricesList.get(i));
+            System.out.println();
+        }
+
+        System.out.println("total price: "+this.totalPrice);
+
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }
