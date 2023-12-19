@@ -1,4 +1,4 @@
-package com.mycompany.ooseca;
+package com.mycompany.ooseca.order;
 
 public class MenuItem {
     private int menuItemID;

@@ -1,4 +1,4 @@
-package com.mycompany.ooseca;
+package com.mycompany.ooseca.order;
 
 import java.util.ArrayList;
 import java.util.List;

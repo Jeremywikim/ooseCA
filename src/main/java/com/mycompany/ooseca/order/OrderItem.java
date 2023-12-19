@@ -1,9 +1,8 @@
-package com.mycompany.ooseca;
+package com.mycompany.ooseca.order;
 
 
 
 import java.util.ArrayList;
-import java.lang.reflect.Field;
 
 public class OrderItem {
 
@@ -11,7 +10,7 @@ public class OrderItem {
     private int orderID = 0;
     private ArrayList<Integer> quantity;
     private ArrayList<Double> pricesList;
-    private ArrayList<MenuItem> orderList;
+    public ArrayList<MenuItem> orderList;
     private double totalPrice = 0.0;
     private Menu menu;
 
@@ -62,20 +61,16 @@ public class OrderItem {
         return totalPrice;
     }
 
-    public void printOrder(){
+    public String receipt(){
 
-        System.out.println("orderID: " + this.orderID);
-        System.out.println("itemID  " + "name  " + "   price  " + "quantity  " + "total price of item") ;
+        StringBuilder string= new StringBuilder();
+        string.append("orderID: ").append(this.orderID).append("\n").append("itemID  ").append("name  ").append("   price  ").append("quantity  ").append("total price of item\n");
         for (int i=0; i< orderList.size();i++){
-            System.out.printf("%-7s",orderList.get(i).getMenuItemID());
-            System.out.printf("%-10s",orderList.get(i).getItemName());
-            System.out.printf("%-10s",orderList.get(i).getPrice());
-            System.out.printf("%-10s",quantity.get(i));
-            System.out.printf("%-10s",pricesList.get(i));
-            System.out.println();
+            string.append(String.format(String.valueOf(orderList.get(i).getMenuItemID()), "%-7s")).append(String.format(orderList.get(i).getItemName(), "%-10s")).append(String.format(String.valueOf(orderList.get(i).getPrice()), "%-10s")).append(String.format(String.valueOf(quantity.get(i)), "%-10s")).append(String.format(String.valueOf(pricesList.get(i)), "%-10s")).append("\n");
         }
+        string.append(this.totalPrice);
 
-        System.out.println("total price: "+this.totalPrice);
+        return string.toString();
 
     }
 

@@ -1,5 +1,8 @@
 package com.mycompany.ooseca;
 
+import com.mycompany.ooseca.order.Menu;
+import com.mycompany.ooseca.order.Order;
+import com.mycompany.ooseca.order.OrderItem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,8 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.List;
-
-import static org.mockito.Mockito.*;
 
 class OrderTest {
     @Mock

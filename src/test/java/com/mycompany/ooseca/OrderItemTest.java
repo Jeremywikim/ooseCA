@@ -1,5 +1,8 @@
 package com.mycompany.ooseca;
 
+import com.mycompany.ooseca.order.Menu;
+import com.mycompany.ooseca.order.MenuItem;
+import com.mycompany.ooseca.order.OrderItem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -65,7 +68,24 @@ class OrderItemTest {
 
     @Test
     void testPrintOrder() {
-        orderItem.printOrder();
+        // Add items to the menu
+        Menu menu2 = new Menu();
+        menu2.addItem("Fillet", 10.0);
+
+        // new an OrderItem
+        OrderItem order2 = new OrderItem(menu2, 1);
+
+        // add item
+        order2.addItemsToOrderList(0);
+        order2.setQuantity(5);
+        order2.addItemsToOrderList(0);
+        order2.setQuantity(5);
+
+        order2.addPricesOfItemTo();
+        order2.calTotalPrice();
+        // print
+        System.out.println("size of orderItem"+ order2.orderList.size());
+        System.out.println(orderItem.receipt());
     }
 
 
