@@ -8,24 +8,17 @@ public class Person {
 
     // contact
     protected String number;
+    protected String firstName, familyName;
 
     // constructor
     public Person(){}
 
-    public Person(String eirCode, String postalAddress, String number) {
+    public Person(String eirCode, String postalAddress, String number, String firstName, String familyName) {
         EirCode = eirCode;
         PostalAddress = postalAddress;
         this.number = number;
+        this.firstName = firstName;
+        this.familyName = familyName;
     }
-
-    // logins
-    public Boolean logins(String user, String password){
-        return user == "User" && password == "Password";
-    }
-
-
-
-
-
 
 }

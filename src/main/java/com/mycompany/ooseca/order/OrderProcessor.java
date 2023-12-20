@@ -1,60 +1,63 @@
 package com.mycompany.ooseca.order;
 
-import java.util.Objects;
-import java.util.Scanner;
+import com.mycompany.ooseca.customer.Customer;
+import com.mycompany.ooseca.customer.Employee;
 
 public class OrderProcessor {
-    public static void main(String[] args) throws IllegalAccessException, NoSuchFieldException {
-        // Logic to process the order
-        // This method may involve communication with kitchen, payment processing, etc.
-        // For simplicity, let's assume it always succeeds for now
 
-        // declaration
-        Scanner sn = new Scanner(System.in);
-        Order order = new Order();
-        Menu menu = new Menu();
-        String YoN;
-        String NoY;
+    // declaration
+    Order order;
+    Menu menu;
+
+    // constructor
+    public OrderProcessor() {
+        this.menu = new Menu();
+    }
 
 
-        // Add items to the menu
-        do {
-            System.out.println("Y for continue enter, N for go on: ");
-            YoN = sn.next();
-            System.out.println("please enter the name of item:  ");
-            String name = sn.next();
-            System.out.println("please enter the price (double):  ");
-            double price = sn.nextDouble();
-            menu.addItem(name, price);
-        }
-        while (Objects.equals(YoN, "Y"));
+    // initialize menu and add items
+    public void initializeMenu() {
+        // add items to menu
+        menu.addItem("fillet", 5.0, 15);
+        menu.addItem("hot wing", 3.0, 25);
+        menu.addItem("ginger", 5.0, 20);
+        menu.addItem("original chicken", 10, 10);
+        menu.addItem("vegan combo", 12, 10);
+    }
 
 
-        // add item to orders
-        do {
-            System.out.println("Y for continue place order, N for go on: ");
-            NoY = sn.next();
+    //start a new order
+    public void startOrder(){
+        order = new Order(new Employee(), new Customer());
+    }
 
+    public String placeOrder(int menuItemID, int quantity){
 
-        }
-        while (Objects.equals(NoY, "Y"));
-
-
-
-
-        order.addOrderToOrders(menu, 0, 1);
-        order.addOrderToOrders(menu, 1, 2);
-
-
-
-
-
-
-
-
-
-
-
+        // if ID in menu and quantity<=inventory return item
+        MenuItem item = menu.getItemFromMenu(menuItemID, quantity);
+        if (order != null){
+            if (item != null) {
+                order.addItemsToOrderList(new OrderItem(item, quantity));
+                return item.getItemName();
+            }
+            else {
+                if (menu.getItemFromMenu(menuItemID) == null){
+                    return "Item not included";
+                }
+                else{
+                    return "Inventory is not enough";
+                }
+            }
+        }return "no order created";
 
     }
+
+
+    // end of order
+    public void endOrder(){
+        order = null;
+    }
+
+
+
 }

@@ -8,17 +8,18 @@ public class Employee extends Person{
     // constructor
     public Employee(){}
 
-    public Employee(int empID, String position) {
+    public Employee(String eirCode, String postalAddress, String number, String firstName, String familyName, int empID, String position) {
+        super(eirCode, postalAddress, number, firstName, familyName);
         this.empID = empID;
         this.position = position;
     }
 
-    public Employee(String eirCode, String postalAddress, String number, int empID, String position) {
-        super(eirCode, postalAddress, number);
-        this.empID = empID;
-        this.position = position;
+    // getter
+    public int getEmpID() {
+        return empID;
     }
 
-
-    //
+    public String getPosition() {
+        return position;
+    }
 }

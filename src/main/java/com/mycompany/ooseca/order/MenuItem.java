@@ -1,20 +1,24 @@
 package com.mycompany.ooseca.order;
 
 public class MenuItem {
-    private int menuItemID;
+    private static int lastMenuItemID = 0;
+    private int menuItemID, inventory;
     private String itemName;
     private double price;
 
-    public MenuItem(){}
 
-    public MenuItem(int menuItemID, String itemName, double price) {
-        this.menuItemID = menuItemID;
+    // constructor
+    public MenuItem(){}
+    public MenuItem(String itemName, double price, int inventory) {
+
+        lastMenuItemID++; // auto increase
+        this.menuItemID = lastMenuItemID; // pass the lastMenuItemID++ to menuItemID
         this.itemName = itemName;
         this.price = price;
+        this.inventory = inventory;
     }
 
     // Getters and setters...
-
     public int getMenuItemID() {
         return menuItemID;
     }
@@ -39,7 +43,8 @@ public class MenuItem {
         this.price = price;
     }
 
+    public int getInventory() {return inventory;}
 
-
+    public void setInventory(int inventory) {this.inventory = inventory;}
 
 }

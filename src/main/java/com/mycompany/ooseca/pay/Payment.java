@@ -4,7 +4,7 @@ public class Payment {
     // declaration
     protected int TranID;
     protected double paymentAmount;
-    protected boolean paymentStatus;
+    protected boolean paymentStatus=false;
 
 
     // constructor
@@ -44,7 +44,7 @@ public class Payment {
         return paymentStatus;
     }
 
-    public void setPaymentStatus(boolean paymentStatus) {
-        this.paymentStatus = paymentStatus;
+    public void setPaymentStatus() {
+        this.paymentStatus = true;
     }
 }

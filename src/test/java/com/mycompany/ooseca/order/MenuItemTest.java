@@ -1,8 +1,11 @@
-package com.mycompany.ooseca;
+package com.mycompany.ooseca.order;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class MenuItemTest {
+
     @Test
     void getMenuItemID() {
     }
@@ -26,6 +29,12 @@ class MenuItemTest {
     @Test
     void setPrice() {
     }
-}
 
-//Generated with love by TestMe :) Please report issues and submit feature requests at: https://weirddev.com/forum#!/testme
+    @Test
+    void getInventory() {
+    }
+
+    @Test
+    void setInventory() {
+    }
+}
