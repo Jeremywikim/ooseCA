@@ -1,7 +1,13 @@
+/*
+title: OOSE CA
+author: Mingyan Jia & Wenche Liu
+date: 2023/12/01
+ */
 package com.mycompany.ooseca.order;
 
 import com.mycompany.ooseca.customer.Customer;
 import com.mycompany.ooseca.customer.Employee;
+import com.mycompany.ooseca.pay.Payment;
 
 public class OrderProcessor {
 
@@ -28,7 +34,7 @@ public class OrderProcessor {
 
     //start a new order
     public void startOrder(){
-        order = new Order(new Employee(), new Customer());
+        order = new Order(new Employee(), new Customer(), new Payment());
     }
 
     public String placeOrder(int menuItemID, int quantity){

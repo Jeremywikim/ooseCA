@@ -15,8 +15,9 @@ Here I encountered some very tricky environment problems,so I put two test funct
 class file
  */
 
-// this class is used to test GetItemFromMenu function in Menu class
-class MenuTest {
+// this class is used to test AddItem function in Menu class
+class MenuTest2 {
+
     private Menu menu;
 
     @BeforeEach
@@ -30,33 +31,27 @@ class MenuTest {
         // Clean up or reset any shared resources after each test
     }
 
+
+
+
     @Test
-    void testGetItemFromMenu1(){
+    void testAddItem() {
 //        Menu menu=new Menu();
         menu.addItem("fillet", 5.0, 15);
         menu.addItem("hot wing", 3.0, 25);
         menu.addItem("ginger", 5.0, 20);
         menu.addItem("original chicken", 10, 10);
         menu.addItem("vegan combo", 12, 10);
-
-        // when ID in menu and quantity < inventory
-        MenuItem result = menu.getItemFromMenu(1, 5);
-        Assertions.assertEquals("fillet", result.getItemName());
-
-        // when ID is not in menu
-        MenuItem result2 = menu.getItemFromMenu(0, 5);
-        Assertions.assertNull(result2);
-
-
-        // when quantity > inventory
-        MenuItem result3 = menu.getItemFromMenu(1, 100);
-        Assertions.assertNull(result3);
+        Assertions.assertEquals("fillet", menu.getItemFromMenu(1).getItemName());
+        Assertions.assertEquals("vegan combo", menu.getItemFromMenu(5).getItemName());
 
     }
+
+
+
 }
 
 
 
 
 
-//Generated with love by TestMe :) Please report issues and submit feature requests at: https://weirddev.com/forum#!/testme

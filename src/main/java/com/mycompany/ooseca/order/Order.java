@@ -1,7 +1,13 @@
+/*
+title: OOSE CA
+author: Mingyan Jia & Wenche Liu
+date: 2023/12/01
+ */
 package com.mycompany.ooseca.order;
 
 import com.mycompany.ooseca.customer.Customer;
 import com.mycompany.ooseca.customer.Employee;
+import com.mycompany.ooseca.pay.Payment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +15,7 @@ import java.util.List;
 public class Order {
     private Employee ep;
     private Customer cus;
+    private Payment pay;
 
     private static int lastOrderID = 0;
     private int orderID;
@@ -17,12 +24,13 @@ public class Order {
 
 
     // constructor
-    public Order(Employee ep, Customer cus){
+    public Order(Employee ep, Customer cus, Payment pay){
         lastOrderID++; // auto increase OrderID
         this.orderID = lastOrderID; // pass new orderID to new instance of OrderItem
         this.orderList = new ArrayList<>();
         this.ep = ep;
         this.cus = cus;
+        this.pay = pay;
     }
 
 

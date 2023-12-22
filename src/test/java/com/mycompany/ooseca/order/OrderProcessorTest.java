@@ -1,11 +1,18 @@
+/*
+title: OOSE CA
+author: Mingyan Jia & Wenche Liu
+date: 2023/12/01
+ */
+
 package com.mycompany.ooseca.order;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+
+
+// I put two alternative flows test in this file,
+// scenario 1: when item is not in menu,
+// scenario 2: when quantity > inventory
 
 class OrderProcessorTest {
 
@@ -22,6 +29,7 @@ class OrderProcessorTest {
 
     }
 
+    // alternative  flow test
     @Test
     void testPlaceOrder() {
         op.initializeMenu();
